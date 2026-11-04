@@ -11,7 +11,10 @@ namespace Pharmacy_Inventory_System
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                lblCurrentDate.Text = DateTime.Now.ToString("dddd, dd MMMM yyyy");
+            }
         }
     }
 }
