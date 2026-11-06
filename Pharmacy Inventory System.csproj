@@ -236,9 +236,6 @@
       <DependentUpon>Medicines.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Medicines.aspx.designer.cs">
-      <DependentUpon>Medicines.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Purchases.aspx.cs">
       <DependentUpon>Purchases.aspx</DependentUpon>
