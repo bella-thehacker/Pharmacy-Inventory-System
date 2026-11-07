@@ -747,6 +747,30 @@ input, select, textarea {
     .report-chart-container {
         height: 280px;
     }
+
+   /* Buttons: match the navy/teal theme instead of Bootstrap blue */
+.dashboard-page .btn-primary { background: var(--primary); border-color: var(--primary); font-weight: 600; }
+.dashboard-page .btn-primary:hover { background: var(--primary-light); border-color: var(--primary-light); }
+.dashboard-page .btn-secondary { background: var(--white); color: var(--primary); border-color: var(--border); font-weight: 600; }
+.dashboard-page .btn-secondary:hover { background: var(--accent-light); color: var(--primary); border-color: var(--accent); }
+
+/* Form fields (Bootstrap 5 has no .form-group, so it is defined here) */
+.dashboard-page .form-group label { display: block; margin-bottom: 6px; font-size: 14px; font-weight: 600; color: var(--primary); }
+.dashboard-page .form-control { min-height: 44px; border: 1px solid var(--border); border-radius: 8px; }
+.dashboard-page .form-control:focus,
+.search-input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(22, 160, 133, 0.12); }
+
+/* Search box above each table */
+.search-container { display: flex; gap: 10px; flex-wrap: wrap; }
+.search-input { flex: 1 1 220px; min-height: 44px; padding: 0 12px; border: 1px solid var(--border); border-radius: 8px; color: var(--text); background: var(--white); }
+
+/* Save / Cancel row and the purchase total */
+.form-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+.total-display { margin-left: 14px; font-size: 22px; font-weight: 700; color: var(--primary); }
+
+/* Spacing for the status message and the form panel */
+.dashboard-page .alert { margin-bottom: 20px; }
+.dashboard-page .dashboard-panel { margin-bottom: 0; }
 }
 
 /* Staff Management */

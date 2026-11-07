@@ -129,6 +129,7 @@
     <Content Include="Global.asax" />
     <Content Include="Medicines.aspx" />
     <Content Include="Purchases.aspx" />
+    <Content Include="README.md" />
     <Content Include="Reports.aspx" />
     <Content Include="Sales.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
