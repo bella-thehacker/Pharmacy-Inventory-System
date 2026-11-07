@@ -748,3 +748,33 @@ input, select, textarea {
         height: 280px;
     }
 }
+
+/* Staff Management */
+.form-label {
+    color: var(--primary);
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.form-control {
+    border-radius: 7px;
+    padding: 10px 12px;
+    border: 1px solid var(--border);
+}
+
+    .form-control:focus {
+        border-color: var(--accent);
+        box-shadow: 0 0 0 3px rgba(22, 160, 133, 0.12);
+    }
+
+.table th {
+    color: var(--primary);
+    background: var(--background);
+    font-size: 13px;
+    padding: 14px;
+}
+
+.table td {
+    padding: 14px;
+    vertical-align: middle;
+}

@@ -28,9 +28,10 @@
                             CssClass="form-control mb-3">
                         </asp:TextBox>
 
-                        <asp:Button ID="btnLogin" runat="server"
-                            Text="Sign In"
-                            CssClass="btn btn-dark w-100" />
+                       <asp:Button ID="btnLogin" runat="server"
+                             Text="Sign In"
+                              CssClass="btn btn-dark w-100"
+                             OnClick="btnLogin_Click" />
 
                         <asp:Label ID="lblMessage" runat="server"
                             CssClass="text-danger">
