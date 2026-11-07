@@ -52,7 +52,7 @@
     </div>
 
     <!-- ADD MEDICINE FORM -->
-    <asp:Panel ID="pnlMedicineForm" runat="server" ClientIDMode="Static" Visible="true"
+    <asp:Panel ID="pnlMedicineForm" runat="server" Visible="true"
         CssClass="dashboard-panel" style="display:none;">
 
         <div class="panel-heading">
@@ -139,8 +139,8 @@
 
 <!-- MEDICINE JAVASCRIPT -->
 <script>
-function showMedicineForm() { document.getElementById("pnlMedicineForm").style.display = "block"; }
-function hideMedicineForm() { document.getElementById("pnlMedicineForm").style.display = "none"; }
+function showMedicineForm() { document.getElementById('<%= pnlMedicineForm.ClientID %>').style.display = 'block'; }
+function hideMedicineForm() { document.getElementById('<%= pnlMedicineForm.ClientID %>').style.display = 'none'; }
 </script>
 
 </asp:Content>

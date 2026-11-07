@@ -51,8 +51,7 @@ namespace Pharmacy_Inventory_System
             AppData.Medicines.Rows.InsertAt(row, 0);   // newest first
 
             // Redirect so pressing F5 does not add the same medicine twice
-            Response.Redirect(Request.Path + "?saved=1", false);
-            Context.ApplicationInstance.CompleteRequest();
+            RedirectSaved("1");
         }
 
         private void LoadSuppliers()
@@ -72,6 +71,16 @@ namespace Pharmacy_Inventory_System
             lblLowStock.Text = all.AsEnumerable().Count(r =>
                 r.Field<int>("Quantity") > 0 && r.Field<int>("Quantity") <= AppData.LowStockLevel).ToString();
             lblOutOfStock.Text = all.AsEnumerable().Count(r => r.Field<int>("Quantity") == 0).ToString();
+        }
+
+        // Reload this page (works with Friendly URLs) so pressing F5 does not repeat the save
+        private void RedirectSaved(string code)
+        {
+            string url = Request.RawUrl;
+            int q = url.IndexOf('?');
+            if (q >= 0) url = url.Substring(0, q);
+            Response.Redirect(url + "?saved=" + code, false);
+            Context.ApplicationInstance.CompleteRequest();
         }
 
         private void ShowMessage(string text, bool ok)

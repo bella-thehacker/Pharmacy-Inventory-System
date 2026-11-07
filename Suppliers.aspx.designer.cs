@@ -9,8 +9,6 @@
 
 namespace Pharmacy_Inventory_System
 {
-
-
     public partial class Suppliers
     {
 

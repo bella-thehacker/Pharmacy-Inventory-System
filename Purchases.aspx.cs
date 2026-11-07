@@ -63,8 +63,7 @@ namespace Pharmacy_Inventory_System
             if (med != null) med["Quantity"] = med.Field<int>("Quantity") + qty;
 
             // Redirect so pressing F5 does not record the same purchase twice
-            Response.Redirect(Request.Path + "?saved=" + (med != null ? "2" : "1"), false);
-            Context.ApplicationInstance.CompleteRequest();
+            RedirectSaved(med != null ? "2" : "1");
         }
 
         private void LoadDropdowns()
@@ -89,6 +88,16 @@ namespace Pharmacy_Inventory_System
             lblPurchaseValue.Text = "Ksh " + value.ToString("N2", CultureInfo.InvariantCulture);
             // "Awaiting payment" = Pending or Partially Paid
             lblPending.Text = all.AsEnumerable().Count(r => r.Field<string>("PaymentStatus") != "Paid").ToString();
+        }
+
+        // Reload this page (works with Friendly URLs) so pressing F5 does not repeat the save
+        private void RedirectSaved(string code)
+        {
+            string url = Request.RawUrl;
+            int q = url.IndexOf('?');
+            if (q >= 0) url = url.Substring(0, q);
+            Response.Redirect(url + "?saved=" + code, false);
+            Context.ApplicationInstance.CompleteRequest();
         }
 
         private void ShowMessage(string text, bool ok)

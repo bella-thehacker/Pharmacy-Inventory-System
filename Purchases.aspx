@@ -52,7 +52,7 @@
     </div>
 
     <!-- RECORD PURCHASE FORM -->
-    <asp:Panel ID="pnlPurchaseForm" runat="server" ClientIDMode="Static" Visible="true"
+    <asp:Panel ID="pnlPurchaseForm" runat="server" Visible="true"
         CssClass="dashboard-panel" style="display:none;">
 
         <div class="panel-heading">
@@ -75,12 +75,12 @@
             </div></div>
             <div class="col-md-6"><div class="form-group">
                 <label>Quantity</label>
-                <asp:TextBox ID="txtQuantity" runat="server" ClientIDMode="Static" CssClass="form-control"
+                <asp:TextBox ID="txtQuantity" runat="server" CssClass="form-control"
                     TextMode="Number" step="1" min="1" oninput="calculateTotal()" />
             </div></div>
             <div class="col-md-6"><div class="form-group">
                 <label>Unit Cost (Ksh)</label>
-                <asp:TextBox ID="txtUnitCost" runat="server" ClientIDMode="Static" CssClass="form-control"
+                <asp:TextBox ID="txtUnitCost" runat="server" CssClass="form-control"
                     TextMode="Number" step="0.01" min="0" oninput="calculateTotal()" />
             </div></div>
             <div class="col-md-6"><div class="form-group">
@@ -114,7 +114,7 @@
             <asp:Button ID="btnCalculate" runat="server" Text="Calculate Total"
                 CssClass="btn btn-secondary"
                 OnClientClick="calculateTotal(); return false;" CausesValidation="false" />
-            <asp:Label ID="lblTotalCost" runat="server" ClientIDMode="Static" Text="Ksh 0.00" />
+            <asp:Label ID="lblTotalCost" runat="server" CssClass="total-display" Text="Ksh 0.00" />
         </div>
 
         <!-- FORM BUTTONS -->
@@ -165,13 +165,13 @@
 
 <!-- PURCHASE JAVASCRIPT -->
 <script>
-function showPurchaseForm() { document.getElementById("pnlPurchaseForm").style.display = "block"; }
-function hidePurchaseForm() { document.getElementById("pnlPurchaseForm").style.display = "none"; }
+function showPurchaseForm() { document.getElementById('<%= pnlPurchaseForm.ClientID %>').style.display = 'block'; }
+function hidePurchaseForm() { document.getElementById('<%= pnlPurchaseForm.ClientID %>').style.display = 'none'; }
 
 function calculateTotal() {
-    var quantity = parseFloat(document.getElementById("txtQuantity").value) || 0;
-    var cost = parseFloat(document.getElementById("txtUnitCost").value) || 0;
-    document.getElementById("lblTotalCost").textContent = "Ksh " + (quantity * cost).toFixed(2);
+    var quantity = parseFloat(document.getElementById('<%= txtQuantity.ClientID %>').value) || 0;
+    var cost = parseFloat(document.getElementById('<%= txtUnitCost.ClientID %>').value) || 0;
+    document.getElementById('<%= lblTotalCost.ClientID %>').textContent = 'Ksh ' + (quantity * cost).toFixed(2);
 }
 </script>
 

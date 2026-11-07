@@ -32,7 +32,7 @@
     </div>
 
     <!-- ADD SUPPLIER FORM -->
-    <asp:Panel ID="pnlSupplierForm" runat="server" ClientIDMode="Static" Visible="true"
+    <asp:Panel ID="pnlSupplierForm" runat="server" Visible="true"
         CssClass="dashboard-panel" style="display:none;">
 
         <div class="panel-heading">
@@ -111,8 +111,8 @@
 
 <!-- SUPPLIER JAVASCRIPT -->
 <script>
-function showSupplierForm() { document.getElementById("pnlSupplierForm").style.display = "block"; }
-function hideSupplierForm() { document.getElementById("pnlSupplierForm").style.display = "none"; }
+function showSupplierForm() { document.getElementById('<%= pnlSupplierForm.ClientID %>').style.display = 'block'; }
+function hideSupplierForm() { document.getElementById('<%= pnlSupplierForm.ClientID %>').style.display = 'none'; }
 </script>
 
 </asp:Content>

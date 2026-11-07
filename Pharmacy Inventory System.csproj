@@ -127,6 +127,7 @@
     <Content Include="Global.asax" />
     <Content Include="Medicines.aspx" />
     <Content Include="Purchases.aspx" />
+    <Content Include="README.md" />
     <Content Include="Reports.aspx" />
     <Content Include="Sales.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
@@ -206,6 +207,7 @@
     <Compile Include="Account\Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
+    <Compile Include="AppData.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>
@@ -235,6 +237,9 @@
     <Compile Include="Medicines.aspx.cs">
       <DependentUpon>Medicines.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Medicines.aspx.designer.cs">
+      <DependentUpon>Medicines.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Purchases.aspx.cs">

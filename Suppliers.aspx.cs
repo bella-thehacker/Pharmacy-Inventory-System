@@ -45,8 +45,7 @@ namespace Pharmacy_Inventory_System
             AppData.Suppliers.Rows.InsertAt(row, 0);   // newest first
 
             // Redirect so pressing F5 does not add the same supplier twice
-            Response.Redirect(Request.Path + "?saved=1", false);
-            Context.ApplicationInstance.CompleteRequest();
+            RedirectSaved("1");
         }
 
         private void BindGrid()
@@ -54,6 +53,16 @@ namespace Pharmacy_Inventory_System
             gvSuppliers.DataSource = AppData.Filter(AppData.Suppliers, txtSearch.Text);
             gvSuppliers.DataBind();
             lblTotalSuppliers.Text = AppData.Suppliers.Rows.Count.ToString();
+        }
+
+        // Reload this page (works with Friendly URLs) so pressing F5 does not repeat the save
+        private void RedirectSaved(string code)
+        {
+            string url = Request.RawUrl;
+            int q = url.IndexOf('?');
+            if (q >= 0) url = url.Substring(0, q);
+            Response.Redirect(url + "?saved=" + code, false);
+            Context.ApplicationInstance.CompleteRequest();
         }
 
         private void ShowMessage(string text, bool ok)
