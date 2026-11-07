@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿
+using System;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace Pharmacy_Inventory_System
 {
@@ -11,9 +8,23 @@ namespace Pharmacy_Inventory_System
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            // Check whether the user is logged in
+            string role = Convert.ToString(Session["UserRole"]);
+
+            if (string.IsNullOrWhiteSpace(role))
+            {
+                Response.Redirect(
+                    ResolveUrl("~/Account/Login.aspx"), false);
+
+                Context.ApplicationInstance.CompleteRequest();
+                return;
+            }
+
+            // Display the current date on the dashboard
             if (!IsPostBack)
             {
-                lblCurrentDate.Text = DateTime.Now.ToString("dddd, dd MMMM yyyy");
+                lblCurrentDate.Text =
+                    DateTime.Now.ToString("dddd, dd MMMM yyyy");
             }
         }
     }

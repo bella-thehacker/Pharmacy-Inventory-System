@@ -118,41 +118,51 @@
                 </li>
 
                 <!-- Profile: visible after login -->
-                <li class="nav-item dropdown" id="liProfile" runat="server" visible="false">
+             
+<!-- User Profile: visible after login -->
+<li class="nav-item dropdown" id="liProfile" runat="server" visible="false">
 
-                    <a class="nav-link dropdown-toggle"
-                        href="#"
-                        role="button"
-                        data-bs-toggle="dropdown"
-                        aria-expanded="false">
+    <a class="nav-link dropdown-toggle profile-link"
+       href="#"
+       role="button"
+       data-bs-toggle="dropdown"
+       aria-expanded="false">
 
-                        <asp:Label ID="lblProfileName" runat="server" />
-                        <span class="badge bg-success">
-                            <asp:Label ID="lblProfileRole" runat="server" />
-                        </span>
+        <span class="profile-avatar">
+            <i class="profile-avatar-text">PT</i>
+        </span>
 
-                    </a>
+        <span class="profile-details">
+            <asp:Label ID="lblProfileName" runat="server"
+                CssClass="profile-name" />
 
-                    <ul class="dropdown-menu dropdown-menu-end">
+            <asp:Label ID="lblProfileRole" runat="server"
+                CssClass="profile-role" />
+        </span>
 
-                        <li>
-                            <span class="dropdown-item-text">
-                                <asp:Label ID="lblProfileEmail" runat="server" />
-                            </span>
-                        </li>
+    </a>
 
-                        <li><hr class="dropdown-divider" /></li>
+    <ul class="dropdown-menu dropdown-menu-end profile-menu">
 
-                        <li>
-                            <asp:LinkButton ID="lnkLogout" runat="server"
-                                CssClass="dropdown-item"
-                                OnClick="lnkLogout_Click">
-                                Sign Out
-                            </asp:LinkButton>
-                        </li>
+        <li>
+            <span class="dropdown-item-text profile-email">
+                <asp:Label ID="lblProfileEmail" runat="server" />
+            </span>
+        </li>
 
-                    </ul>
-                </li>
+        <li><hr class="dropdown-divider" /></li>
+
+        <li>
+            <asp:LinkButton ID="lnkLogout" runat="server"
+                CssClass="dropdown-item profile-logout"
+                OnClick="lnkLogout_Click">
+                Sign Out
+            </asp:LinkButton>
+        </li>
+        
+    </ul>
+</li>
+
 
             </ul>
         </div>
@@ -170,8 +180,6 @@
             </footer>
         </div>
     </form>
-    <asp:PlaceHolder runat="server">
-        <%: Scripts.Render("~/Scripts/bootstrap.js") %>
-    </asp:PlaceHolder>
+    <script src="<%= ResolveUrl("~/Scripts/bootstrap.bundle.js") %>"></script>
 </body>
 </html>
