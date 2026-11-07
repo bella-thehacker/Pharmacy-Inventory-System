@@ -223,6 +223,7 @@
     <Compile Include="AdminStaff.aspx.designer.cs">
       <DependentUpon>AdminStaff.aspx</DependentUpon>
     </Compile>
+    <Compile Include="AppData.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>
